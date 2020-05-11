@@ -35,102 +35,98 @@
 #define __STATS_H__
 
 /* Add Your Declarations and Function Comments here */ 
-	void print_statistics( int max , int min , int mean , int median )
-	void print_array( char array[] , int x )
+	void print_statistics( unsigned char max , unsigned char min , unsigned char med , unsigned char mean )
+	void print_array( unsigned char * x, int s )
+	void sort_array( unsigned char * x, int s )
+	char find_median( unsigned char * x, int s )
+	char find_mean( unsigned char * x, int s )
+	char find_maximum( unsigned char * x, int s )
+	char find_minimum( unsigned char * x, int s )
 
 
 /**
  * @Functions:
- *	**********************************************************
- *	* Name:		main()					 *
- *	* Type:		int					 *
- *	*							 *
- *	* Description:  contains the main exceuting code	 *
- *	*							 *
- *	* input para:	none					 *
- *	*							 *
- *	* output para:  return 0;				 *
- *	**********************************************************
- *	* Name:		print_statistics()			 *
- *	* Type:		void					 *
- *	*							 *
- *	* Description:	takes the varaibles optained from the 	 *
- *	*		given array of; Largest number, smallest *
- *	*		number, mean and median. and prints them *
- *	*							 *
- *	* input para:	char max , the largest value in array	 *
- *	*		char min , the smallest value in array 	 *
- *	*		char med , the median of the array	 *
- *	*		char mean, the mean of the array	 *
- *	*							 *
- *	* output para:	return;	  returns nothing		 *
- *	**********************************************************
- *	* Name:		print_array()				 *
- *	* Type:		void					 *
- *	*							 *
- *	* Description:	prints the array in a neat and organised *
- *	*		way.					 *
- *	*							 *
- *	* input para:	char * x , pointer to the array		 *
- *	*		int s    , size of the array		 *
- *	*							 *
- *	* output para:	return;	   returns nothing		 *
- *	**********************************************************
- *	* Name:		sort_array()				 *
- *	* Type:		void					 *
- *	*							 *
- *	* Description:	sorts the array's value from the largest *
- *	*		to the smallest				 *
- *	*							 *
- *	* input para:	char * x , pointer to the array		 *
- *	*		int s    , size of the array		 *
- *	* output para:	return;	   returns nothing		 *
- *	**********************************************************
- *	* Name:		find_median()				 *
- *	* Type:		char					 *
- *	*							 *
- *	* Description:	finds the median of the array and	 *
- *	*		returns its value.			 *
- *	*							 *
- *	* input para:	char * x , pointer to the array		 *
- *	*		int s    , size of the array		 *
- *	*							 *
- *	* output para:	char median, returns the median of the   *
- *	*			     array			 *
- *	**********************************************************
- *	* Name:		find_mean()				 *
- *	* Type:		char					 *
- *	*							 *
- *	* Description:	finds the mean of the array and returns  *
- *	*		its value.				 *
- *	*							 *
- *	* input para:	char * x , pointer to the array		 *
- *	*		int s    , size of the array		 *
- *	*							 *
- *	* output para:	char mean, returns the mean of the array *
- *	**********************************************************
- *	* Name:		find_maximum()				 *
- *	* Type:		char					 *
- *	*							 *
- *	* Description:	finds the largest number in the array 	 *
- *	*		and returns it.				 *
- *	*							 *
- *	* input para:	char * x , pointer to the array		 *
- *	*		int s    , size of the array		 *
- *	*							 *
- *	* output para:	char max, returns maximum value in array *
- *	**********************************************************
- *	* Name:		find_minimum()				 *
- *	* Type:		char					 *
- *	*							 *
- *	* Description:	finds the smallest number in the array	 *
- *	*		and returns it.				 *
- *	*							 *
- *	* input para:	char * x , pointer to the array		 *
- *	*		int s    , size of the array		 *
- *	*							 *
- *	* output para:	char min, returns minimum value in array *
- *	**********************************************************
+ *	***********************************************************************
+ *	* Name:		print_statistics()			 
+ *	* Type:		void					 
+ *	*							 
+ *	* Description:	takes the varaibles optained from the 	 
+ *	*		given array of; Largest number, smallest
+ *	*		number, mean and median. and prints them 
+ *	*							 
+ *	* input para:	unsigned char max , the largest value in array	 
+ *	*		unsigned char min , the smallest value in array 	 
+ *	*		unsigned char med , the median of the array	 
+ *	*		unsigned char mean, the mean of the array	 
+ *	*							 
+ *	* output para:	return;	  returns nothing		 
+ *	***********************************************************************
+ *	* Name:		print_array()				 
+ *	* Type:		void					 
+ *	*							 
+ *	* Description:	prints the array in a neat and organised 
+ *	*		way.					 
+ *	*							 
+ *	* input para:	unsigned char * x , pointer to the array		 
+ *	*		int s    , size of the array		 
+ *	*							 
+ *	* output para:	return;	   returns nothing		 
+ *	***********************************************************************
+ *	* Name:		sort_array()				 
+ *	* Type:		void					 
+ *	*							 
+ *	* Description:	sorts the array's value from the largest 
+ *	*		to the smallest				 
+ *	*							 
+ *	* input para:	unsigned char * x , pointer to the array		 
+ *	*		int s    , size of the array		 
+ *      *
+ *	* output para:	return;	   returns nothing		 
+ *	***********************************************************************
+ *	* Name:		find_median()				 
+ *	* Type:		unsigned char					 
+ *	*							 
+ *	* Description:	finds the median of the array and	 
+ *	*		returns its value.			 
+ *	*							 
+ *	* input para:	unsigned char * x , pointer to the array		 
+ *	*		int s    , size of the array		 
+ *	*							 
+ *	* output para:	unsigned char median, returns the median of the array			 
+ *	***********************************************************************
+ *	* Name:		find_mean()				 
+ *	* Type:		unsigned char					 
+ *	*							 
+ *	* Description:	finds the mean of the array and returns  
+ *	*		its value.				 
+ *	*							 
+ *	* input para:	unsigned char * x , pointer to the array		 
+ *	*		int s    , size of the array		 
+ *	*							 
+ *	* output para:	unsigned char mean, returns the mean of the array 
+ *	***********************************************************************
+ *	* Name:		find_maximum()				 
+ *	* Type:		unsigned char					 
+ *	*							 
+ *	* Description:	finds the largest number in the array 	 
+ *	*		and returns it.				 
+ *	*							 
+ *	* input para:	unsigned char * x , pointer to the array		 
+ *	*		int s    , size of the array		 
+ *	*							 
+ *	* output para:	unsigned char max, returns maximum value in array 
+ *	***********************************************************************
+ *	* Name:		find_minimum()				 
+ *	* Type:		unsigned char					 
+ *	*							 
+ *	* Description:	finds the smallest number in the array	
+ *	*		and returns it.				 
+ *	*							 
+ *	* input para:	unsigned char * x , pointer to the array		 
+ *	*		int s    , size of the array		 
+ *	*							 
+ *	* output para:	unsigned char min, returns minimum value in array 
+ *	***********************************************************************
  */
 
 
