@@ -155,35 +155,37 @@ void main() {
   print_statistics ( maximum, minimum, median, mean);
   sort_array ( test, SIZE);
   print_array ( test, SIZE);
+
+  printf("testing this");
 }
 
 /* Add other Implementation File Code Here */
 
 void print_statistics( unsigned char max , unsigned  char min , unsigned char med , unsigned  char m ) {
-
+  return;
 }
 
 void print_array( unsigned char * x, int s ) {
-
+  return;
 }
 
 void sort_array( unsigned char * x, int s ) {
-
+  return;
 }
 
 char find_median( unsigned char * x, int s ) {
-
+  return 0;
 }
 
 char find_mean( unsigned char * x, int s ) {
-
+  return 0;
 }
 
 char find_maximum( unsigned char * x, int s ) {
-
+  return 0;
 }
 
 char find_minimum( unsigned char * x, int s ) {
-
+  return 0;
 }
 
