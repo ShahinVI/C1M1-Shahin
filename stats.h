@@ -9,39 +9,51 @@
  *
  *****************************************************************************/
 /**
- * @file stats.c 
+ * @file stats.h 
  * @brief this code is written to train our coding skills this is assignment 1
  *	  of the embedded systems course.
  *
  * @author Aiman Shahin
  * @date   11/05/2020
  *
- * 	  In this code we recieve an array of numbers which we need to 
- *	  extract data from. these data are as follows:
- *	  	- Largest number in the array
- *	 	- Smallest number in the array
- *		- mean of the array
- *		- median of the array
- *		
- *	  then we will print all of these values in an organised way.
- *
- *	  the next step is to reorder the array from the largest number to
- *	  the smallest number and round them down to the nearest integer.
- *	  then print the array in an organised and neat way.
+ * 	  this file contains the functions which will be used in this code
+ *	  the functions are:
+ *	  	print_statistics
+ *	 	print_array
+ *		sort_array
+ *		find_median
+ *		find_mean
+ *	        find_maximum
+ *              find_minimum
+ *	  
+ *	  
+ *	  
  *
  *****************************************************************************/
 
 #ifndef __STATS_H__
 #define __STATS_H__
 
-/* Add Your Declarations and Function Comments here */ 
-	void print_statistics( unsigned char max , unsigned char min , unsigned char med , unsigned char mean );
-	void print_array( unsigned char * x, int s );
-	void sort_array( unsigned char * x, int s );
-	unsigned char find_median( unsigned char * x, int s );
-	unsigned char find_mean( unsigned char * x, int s );
-	unsigned char find_maximum( unsigned char * x, int s );
-	unsigned char find_minimum( unsigned char * x, int s );
+/*this function prints the largest, smallest, median and mean values of the array */
+void print_statistics( unsigned char max , unsigned char min , unsigned char med , unsigned char mean );
+
+/* this function prints the array */
+void print_array( unsigned char * x, int s );
+
+/* this function sorts the array from the largest value to the smallest value */
+void sort_array( unsigned char * x, int s );
+
+/* this function finds the median of the array and returns it */
+unsigned char find_median( unsigned char * x, int s );
+
+/* this function finds the mean value and returns it */
+unsigned char find_mean( unsigned char * x, int s );
+
+/* this function finds the largest value in the array and returns it */
+unsigned char find_maximum( unsigned char * x, int s );
+
+/*this function finds the smallest value in the array and returns it */
+unsigned char find_minimum( unsigned char * x, int s );
 
 
 /**
@@ -75,8 +87,8 @@
  *	* Name:		sort_array()				 
  *	* Type:		void					 
  *	*							 
- *	* Description:	sorts the array's value from the largest 
- *	*		to the smallest				 
+ *	* Description:	sorts the array's value from the largest to the smallest
+ *	*		and directly edit the original array through pointers.			 
  *	*							 
  *	* input para:	unsigned char * x , pointer to the array		 
  *	*		int s    , size of the array		 

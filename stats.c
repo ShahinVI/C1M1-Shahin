@@ -71,8 +71,8 @@
  *	* Name:		sort_array()				 
  *	* Type:		void					 
  *	*							 
- *	* Description:	sorts the array's value from the largest 
- *	*		to the smallest				 
+ *	* Description:	sorts the array's value from the largest to the smallest
+ *	*		and directly edit the original array through pointers.			 
  *	*							 
  *	* input para:	unsigned char * x , pointer to the array		 
  *	*		int s    , size of the array		 
@@ -141,40 +141,47 @@ void main() {
                               201,   6,  12,  60,   8,   2,   5,  67,
                                 7,  87, 250, 230,  99,   3, 100,  90};
 
-  /* Other Variable Declarations Go Here */
-  unsigned char maximum;
-  unsigned char minimum;
-  unsigned char median;
-  unsigned char mean;
+  /* variables initialization */
+  unsigned char maximum; /* used to store the largest value of the array */
 
-  /* Statistics and Printing Functions Go Here */
+  unsigned char minimum; /* used to store the smallest value of the array */
+
+  unsigned char median;  /* used to store the median value of the array */
+
+  unsigned char mean;    /* used to store the mean of the array's values */
+
+  /* finding and storing the statistics values in its corrosponding variables */
   maximum = find_maximum ( test, SIZE);
   minimum = find_minimum ( test, SIZE);
   median  = find_median ( test, SIZE);
   mean    = find_mean ( test, SIZE);
+  
+  /* Statistics and Printing Functions Go Here */
   print_statistics ( maximum, minimum, median, mean);
   sort_array ( test, SIZE);
   print_array ( test, SIZE);
 
-  /* new median after sorting */
+  /* printing new median after sorting */
   printf(" new median after sorting:  %d\n\n",find_median( test, SIZE));
-  
+  return;
 }
 
 /* Add other Implementation File Code Here */
 
 void print_statistics ( unsigned char max , unsigned  char min , unsigned char med , unsigned  char m ) {
-  printf("\n\n the following are the data of the array:\n\n Maximum: %d\n Minimum: %d\n Median:  %d\n Mean:    %d\n\n",max,min,med,m);
+  printf("\n\n the following are the data of the array:");
+  printf("\n\n Maximum: %d\n Minimum: %d\n Median:  %d\n Mean:    %d\n\n",max,min,med,m);
   return;
 }
 
+/*****************************************************************************************************/
 void print_array ( unsigned char * x, int s ) {
   printf("\n ");
-  for ( int i = 0; i < s; i++ ){
-     if(i%5==0){
+  for ( int i = 0; i < s; i++ ) {
+     if( i%5 == 0 ) {
        printf("\n %d",*x);
      }
-     else{
+     else {
        printf(" %d",*x);
      }
      x++;     
@@ -183,31 +190,46 @@ void print_array ( unsigned char * x, int s ) {
   return;
 }
 
+/*****************************************************************************************************/
 void sort_array ( unsigned char * x, int s ) {
-  unsigned char temparr[s];
-  unsigned char temp1 = *x;
-  unsigned char temp2;
-  temparr[0]= *x;
+
+  unsigned char temparr[s]; /* creating array to store the temporary new array */
+  unsigned char temp1; /* a temporary variable that helps in sorting array */
+
+  temparr[0]= *x; /*asign first value of the original array to the first space in the temporary array */
+
+  /* loop for all values of the original array, start at the second value of original array to compare */
   for ( int i = 1;  i < s; i++ ){
-     x++;
-     temp1 = *x;
-     temparr[i] = *x;
+
+     x++;                /* increment the x to have a value of the next address in the array */
+     temp1 = *x;         /* store the new value in the temp to compare with the values of the temp array */
+     temparr[i] = *x;    /* set the last reached position of the temp array with the new value */ 
+     
+     /* loop to compare the values of all currently stored values in the temporary array and sort from
+	the largest to the smallest */
      for ( int j = 0; j < i; j++ ){
         if( temp1 > temparr[j] ){
-          temparr[i] = temparr[j];
-          temparr[j] = temp1;
-          temp1 = temparr[i];
+          temparr[i] = temparr[j]; /* switch the values of the temp array last position with the smaller value */
+          temparr[j] = temp1;      /* replace the small number in the temporary array with the larger number from
+				      the original array*/
+          temp1 = temparr[i];      /* store the current smallest number in the temp variable and repeat the loop
+				      until the code reach the end of the current array */
         }
      }
   }
-  x = x-s+1;
+
+  x = x-s+1; /* reset the value of the pointer to the initial address of the original array first position*/
+  
+  /* replace the values of the original array with the new sorted array*/
   for ( int i = 0 ; i < s; i++ ){
 	*x = temparr[i];
         x++;
   }
+
   return;
 }
 
+/*******************************************************************************************************/
 unsigned char find_median ( unsigned char * x, int s ) {
   unsigned char median;
   if( s%2 == 0 ) {
@@ -219,6 +241,7 @@ unsigned char find_median ( unsigned char * x, int s ) {
   return median;
 }
 
+/*****************************************************************************************************/
 unsigned char find_mean ( unsigned char * x, int s ) {
   unsigned char mean = *x;
   for( int i = 1 ; i < s ; i++) {
@@ -229,6 +252,7 @@ unsigned char find_mean ( unsigned char * x, int s ) {
   return mean;
 }
 
+/*****************************************************************************************************/
 unsigned char find_maximum ( unsigned char * x, int s ) {
   unsigned char maximum = *x;
   for( int i = 1 ; i < s ; i++) {
@@ -240,6 +264,7 @@ unsigned char find_maximum ( unsigned char * x, int s ) {
   return maximum;
 }
 
+/*****************************************************************************************************/
 unsigned char find_minimum ( unsigned char * x, int s ) {
   unsigned char minimum = *x;
   for( int i = 1 ; i < s ; i++) {
