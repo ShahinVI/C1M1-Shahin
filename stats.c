@@ -156,36 +156,98 @@ void main() {
   sort_array ( test, SIZE);
   print_array ( test, SIZE);
 
-  printf("testing this");
+  /* new median after sorting */
+  printf(" new median after sorting:  %d\n\n",find_median( test, SIZE));
+  
 }
 
 /* Add other Implementation File Code Here */
 
-void print_statistics( unsigned char max , unsigned  char min , unsigned char med , unsigned  char m ) {
+void print_statistics ( unsigned char max , unsigned  char min , unsigned char med , unsigned  char m ) {
+  printf("\n\n the following are the data of the array:\n\n Maximum: %d\n Minimum: %d\n Median:  %d\n Mean:    %d\n\n",max,min,med,m);
   return;
 }
 
-void print_array( unsigned char * x, int s ) {
+void print_array ( unsigned char * x, int s ) {
+  printf("\n ");
+  for ( int i = 0; i < s; i++ ){
+     if(i%5==0){
+       printf("\n %d",*x);
+     }
+     else{
+       printf(" %d",*x);
+     }
+     x++;     
+  }
+  printf("\n\n");
   return;
 }
 
-void sort_array( unsigned char * x, int s ) {
+void sort_array ( unsigned char * x, int s ) {
+  unsigned char temparr[s];
+  unsigned char temp1 = *x;
+  unsigned char temp2;
+  temparr[0]= *x;
+  for ( int i = 1;  i < s; i++ ){
+     x++;
+     temp1 = *x;
+     temparr[i] = *x;
+     for ( int j = 0; j < i; j++ ){
+        if( temp1 > temparr[j] ){
+          temparr[i] = temparr[j];
+          temparr[j] = temp1;
+          temp1 = temparr[i];
+        }
+     }
+  }
+  x = x-s+1;
+  for ( int i = 0 ; i < s; i++ ){
+	*x = temparr[i];
+        x++;
+  }
   return;
 }
 
-char find_median( unsigned char * x, int s ) {
-  return 0;
+unsigned char find_median ( unsigned char * x, int s ) {
+  unsigned char median;
+  if( s%2 == 0 ) {
+    median = (*(x+(s/2))+*(x+(s/2)-1))/2;
+  }
+  else{
+    median = *(x+(s/2));
+  }
+  return median;
 }
 
-char find_mean( unsigned char * x, int s ) {
-  return 0;
+unsigned char find_mean ( unsigned char * x, int s ) {
+  unsigned char mean = *x;
+  for( int i = 1 ; i < s ; i++) {
+     x++;
+     mean = mean + *x;
+  }
+  mean = mean/s;
+  return mean;
 }
 
-char find_maximum( unsigned char * x, int s ) {
-  return 0;
+unsigned char find_maximum ( unsigned char * x, int s ) {
+  unsigned char maximum = *x;
+  for( int i = 1 ; i < s ; i++) {
+     x++;
+     if( *x > maximum ) {
+        maximum = *x;
+     }
+  }
+  return maximum;
 }
 
-char find_minimum( unsigned char * x, int s ) {
-  return 0;
+unsigned char find_minimum ( unsigned char * x, int s ) {
+  unsigned char minimum = *x;
+  for( int i = 1 ; i < s ; i++) {
+     x++;
+     if( *x < minimum ) {
+        minimum = *x;
+     }
+  }
+  return minimum;
 }
 
