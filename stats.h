@@ -35,7 +35,7 @@
 #define __STATS_H__
 
 /*this function prints the largest, smallest, median and mean values of the array */
-void print_statistics( unsigned char max , unsigned char min , unsigned char med , unsigned char mean );
+void print_statistics( unsigned char max , unsigned char min , unsigned char med , unsigned int mean );
 
 /* this function prints the array */
 void print_array( unsigned char * x, int s );
@@ -47,7 +47,7 @@ void sort_array( unsigned char * x, int s );
 unsigned char find_median( unsigned char * x, int s );
 
 /* this function finds the mean value and returns it */
-unsigned char find_mean( unsigned char * x, int s );
+unsigned int find_mean( unsigned char * x, int s );
 
 /* this function finds the largest value in the array and returns it */
 unsigned char find_maximum( unsigned char * x, int s );
@@ -107,7 +107,7 @@ unsigned char find_minimum( unsigned char * x, int s );
  *	* output para:	unsigned char median, returns the median of the array			 
  *	***********************************************************************
  *	* Name:		find_mean()				 
- *	* Type:		unsigned char					 
+ *	* Type:		unsigned int					 
  *	*							 
  *	* Description:	finds the mean of the array and returns  
  *	*		its value.				 

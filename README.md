@@ -78,7 +78,7 @@
  		* output para:	unsigned char median, returns the median of the array 
  		***********************************************************************
  		* Name:		find_mean() 
- 		* Type:		unsigned char 
+ 		* Type:		unsigned int 
  		*
  		* Description:	finds the mean of the array and returns 
  		*		its value.

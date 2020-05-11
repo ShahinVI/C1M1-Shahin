@@ -91,7 +91,7 @@
  *	* output para:	unsigned char median, returns the median of the array			 
  *	***********************************************************************
  *	* Name:		find_mean()				 
- *	* Type:		unsigned char					 
+ *	* Type:		unsigned int					 
  *	*							 
  *	* Description:	finds the mean of the array and returns  
  *	*		its value.				 
@@ -148,7 +148,7 @@ void main() {
 
   unsigned char median;  /* used to store the median value of the array */
 
-  unsigned char mean;    /* used to store the mean of the array's values */
+  unsigned int mean;    /* used to store the mean of the array's values */
 
   /* finding and storing the statistics values in its corrosponding variables */
   maximum = find_maximum ( test, SIZE);
@@ -168,7 +168,7 @@ void main() {
 
 /* Add other Implementation File Code Here */
 
-void print_statistics ( unsigned char max , unsigned  char min , unsigned char med , unsigned  char m ) {
+void print_statistics ( unsigned char max , unsigned  char min , unsigned char med , unsigned  int m ) {
   printf("\n\n the following are the data of the array:");
   printf("\n\n Maximum: %d\n Minimum: %d\n Median:  %d\n Mean:    %d\n\n",max,min,med,m);
   return;
@@ -242,8 +242,8 @@ unsigned char find_median ( unsigned char * x, int s ) {
 }
 
 /*****************************************************************************************************/
-unsigned char find_mean ( unsigned char * x, int s ) {
-  unsigned char mean = *x;
+unsigned int find_mean ( unsigned char * x, int s ) {
+  unsigned int mean = *x;
   for( int i = 1 ; i < s ; i++) {
      x++;
      mean = mean + *x;
