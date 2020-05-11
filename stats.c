@@ -150,7 +150,8 @@ void main() {
 
   unsigned int mean;    /* used to store the mean of the array's values */
 
-  /* finding and storing the statistics values in its corrosponding variables */
+  /* finding, sorting and storing the statistics values in its corrosponding variables */
+  sort_array ( test, SIZE);
   maximum = find_maximum ( test, SIZE);
   minimum = find_minimum ( test, SIZE);
   median  = find_median ( test, SIZE);
@@ -158,11 +159,8 @@ void main() {
   
   /* Statistics and Printing Functions Go Here */
   print_statistics ( maximum, minimum, median, mean);
-  sort_array ( test, SIZE);
   print_array ( test, SIZE);
 
-  /* printing new median after sorting */
-  printf(" new median after sorting:  %d\n\n",find_median( test, SIZE));
   return;
 }
 
